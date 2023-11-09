@@ -1,0 +1,39 @@
+---
+layout: default
+description: "Página sobre (in)segurança da urna eletrônica"
+title: Home
+---
+
+{% include intro.html %}
+
+
+<section class="post-list">
+  <div class="container">
+
+    <h2>Informações mais procuradas</h2>
+    <p><a class="post-link" href="{{ '/faq' | prepend: site.baseurl }}" style="font-weight: bold;">Perguntas Frequentes</a></p>
+    <br />
+
+    <h2>Relatórios e artigos científicos</h2>
+    <p><a class="post-link" href="https://doi.org/10.13140/RG.2.2.28590.82246/1" style="font-weight: bold;">Execução de código arbitrário na urna eletrônica brasileira</a> (Melhor Artigo no SBSeg 2018)</p>
+    <p><a class="post-link" href="https://doi.org/10.13140/RG.2.2.16240.97287" style="font-weight: bold;">The Return of Software Vulnerabilities in the Brazilian Voting Machine</a> (publicado no periódico Computers & Security 86: 335-349, 2019)</p>
+    <p><a class="post-link" href="https://www.researchgate.net/publication/330914587_The_Good_the_Bad_and_the_Ugly_Two_Decades_of_E-Voting_in_Brazil" style="font-weight: bold;">The Good, the Bad, and the Ugly: Two Decades of E-Voting in Brazil</a> (publicado no periódico IEEE Security & Privacy 16(6): 22-30, 2018)</p>
+    <br />
+
+    <h2>Textos</h2>
+
+    {% for post in paginator.posts %}
+      <article class="post-item">
+        <p><span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>  — <strong><a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></strong> — <span> {{ post.content | strip_html | truncatewords: 40 }}</span> <a class="post-link readmore" href="{{ post.url | prepend: site.baseurl }}">Read more</a></p>
+      </article>
+    {% endfor %}
+
+    <h2>Quem somos</h2>
+    <p>Diego F. Aranha, Pedro Y. S. Barbosa, Thiago N. C. Cardoso, Caio Lüders, Paulo Matias, integrantes do Grupo 1 no TPS e profissionais de Segurança da Informação.
+    <br />
+  </div>
+
+  <div class="container">
+    {% include pagination.html %}
+  </div>
+</section>
